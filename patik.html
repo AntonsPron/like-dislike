@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Like/Dislike Example</title>
+</head>
+<body>
+
+<h2>Ko var darīt ar JavaScript?</h2>
+
+<p>JavaScript var mainīt HTML attribūtus.</p>
+<p>Šajā gadījumā JavaScript maina attēla atribūta src (avota) vērtību.</p>
+
+<button onclick="like()">👍 Like</button>
+<button onclick="dislike()">👎 Dislike</button>
+
+<img id="myImage" src="default.png" style="width:100px" alt="Reaction Image">
+
+<div>
+    Lайki: <span id="likeCounter">0</span><br>
+    Dизлайki: <span id="dislikeCounter">0</span>
+</div>
+
+<script>
+    let likeCounter = 0;
+    let dislikeCounter = 0;
+
+    function like() {
+        likeCounter++;
+        document.getElementById('myImage').src = 'like.png';
+        document.getElementById('likeCounter').innerText = likeCounter;
+        resetDislike(); // Reset dislike count when like is clicked
+    }
+
+    function dislike() {
+        dislikeCounter++;
+        document.getElementById('myImage').src = 'dislike.png';
+        document.getElementById('dislikeCounter').innerText = dislikeCounter;
+        resetLike(); // Reset like count when dislike is clicked
+    }
+
+    function resetLike() {
+        likeCounter = 0;
+        document.getElementById('likeCounter').innerText = likeCounter;
+    }
+
+    function resetDislike() {
+        dislikeCounter = 0;
+        document.getElementById('dislikeCounter').innerText = dislikeCounter;
+    }
+</script>
+
+</body>
+</html>
